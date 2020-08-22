@@ -1,22 +1,30 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Meta from 'vue-meta'
 
 Vue.use(VueRouter)
+Vue.use(Meta)
 
-const routes = [
+export const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    meta: {
+      title: '项目介绍',
+      keywords: '项目介绍 | 樊小书生博客实例',
+      description: '项目介绍 | 樊小书生博客实例'
+    },
+    component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/select',
+    name: 'select',
+    meta: {
+      title: 'Select 相关实例',
+      keywords: 'Select 相关实例 | 樊小书生博客实例',
+      description: 'Select 相关实例 | 樊小书生博客实例'
+    },
+    component: () => import(/* webpackChunkName: "select" */ '@/views/Select.vue')
   }
 ]
 
