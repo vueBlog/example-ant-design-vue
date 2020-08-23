@@ -129,6 +129,7 @@
       <a-col :span="12">
         <a-select
           showSearch
+          allowClear
           optionFilterProp="children"
           placeholder="请选择选项"
           style="width: 120px; margin-right: 16px">
@@ -146,6 +147,7 @@
       <a-col :span="12">
         <a-select
           showSearch
+          allowClear
           optionFilterProp="label"
           placeholder="请选择选项"
           style="width: 120px; margin-right: 16px">
@@ -163,6 +165,7 @@
       <a-col :span="12">
         <a-select
           showSearch
+          allowClear
           :filterOption="filterOption"
           optionLabelProp="label"
           placeholder="请选择选项"
@@ -171,6 +174,50 @@
             {{ item.name }}
           </a-select-option>
         </a-select>
+      </a-col>
+    </a-row>
+    <a-row :gutter="16">
+      <a-col :span="12">
+        上传的三种方式针对多选同样适用
+      </a-col>
+      <a-col :span="12">
+        <div>
+          <a-select
+            mode="multiple"
+            allowClear
+            optionFilterProp="children"
+            placeholder="请选择选项"
+            style="width: 100%">
+            <a-select-option v-for="item in options" :key="item.code" :value="item.id">
+              {{ item.name }}
+            </a-select-option>
+          </a-select>
+        </div>
+        <div>
+          <a-select
+            mode="multiple"
+            allowClear
+            optionFilterProp="label"
+            placeholder="请选择选项"
+            style="width: 100%">
+            <a-select-option v-for="item in options" :key="item.code" :value="item.id" :label="item.name">
+              {{ item.name }}
+            </a-select-option>
+          </a-select>
+        </div>
+        <div>
+          <a-select
+            mode="multiple"
+            allowClear
+            :filterOption="filterOption"
+            optionLabelProp="label"
+            placeholder="请选择选项"
+            style="width: 100%">
+            <a-select-option v-for="item in options" :key="item.code" :value="item.id" :label="item.name" :spell="item.spell" :simpleSpell="item.simpleSpell">
+              {{ item.name }}
+            </a-select-option>
+          </a-select>
+        </div>
       </a-col>
     </a-row>
   </div>
