@@ -5,5 +5,7 @@ module.exports = {
         javascriptEnabled: true
       }
     }
-  }
+  },
+
+  publicPath: '/example-ant-design-vue/'
 }
